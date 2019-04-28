@@ -23,6 +23,11 @@ export default new Router({
       path: '/AllProducts',
       name: 'AllProducts',
       component: () => import('./views/AllProducts.vue')
+    },
+    {
+      path: '/proShelfManagement',
+      name:'proShelfManagement',
+      component: () => import(/* webpackChunkName: "proShelfManagement" */ './views/ProShelfManagement.vue')
     }
   ]
 })
