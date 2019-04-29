@@ -10,9 +10,10 @@
         <span>10 x {{ Math.round(product.price / 10) }}, 00</span>
       </div>
       <el-button
-        type="success"
+        type="primary"
         icon="el-icon-plus"
         plain
+        style=" width:100%"
         @click.native="addProductToCart(product)"
       >Add to cart</el-button>
     </el-card>
