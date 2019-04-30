@@ -10,7 +10,7 @@
       <el-table-column sortable 
         label="上架日期"
         width="180">   
-      <template  slot-scope="scope2">{{scope2.row.date}} </template>
+      <template  slot-scope="scope2">{{scope2.row.create_dt}} </template>
       </el-table-column>
       <el-table-column
         prop="pro_name"
@@ -51,7 +51,7 @@
 <!-- .js 檔案在此相依 -->
 <script>
 import vHeader from "@/components/vHeader";
-
+import Mock from 'mockjs';
 export default {
       
       components: {vHeader},
@@ -60,52 +60,52 @@ export default {
       data() {
         return {
           tableData: [{
-            create_dt:'2016-05-05',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           }, {
-            create_dt:'2016-05-04',
+            create_dt:Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           }, {
-            create_dt:'2016-05-03',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           }, {
-            create_dt:'2016-05-02',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           },{
-            create_dt:'2016-05-02',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           },{
-            create_dt:'2016-05-02',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           },{
-            create_dt:'2016-05-02',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           },{
-            create_dt:'2016-05-02',
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
-            pro_amount: '上海市普陀区金沙江路 1518 弄',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
             pro_status:''
           }]
         }
