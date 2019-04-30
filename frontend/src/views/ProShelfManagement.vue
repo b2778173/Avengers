@@ -1,14 +1,16 @@
 <template>
 
-
+  <div>
+    <v-header/>
   <el-table
       :data="tableData"
       style="width: 70%" height='500' :default-sort = "{prop: 'date', order: 'descending'}"
    stripe>
+
       <el-table-column sortable 
-        prop="create_dt"
         label="上架日期"
-        width="180">
+        width="180">   
+      <template  slot-scope="scope2">{{scope2.row.date}} </template>
       </el-table-column>
       <el-table-column
         prop="pro_name"
@@ -44,11 +46,17 @@
 
 
     </el-table>
-  
+  </div>
 </template>
-
+<!-- .js 檔案在此相依 -->
 <script>
+import vHeader from "@/components/vHeader";
+
 export default {
+      
+      components: {vHeader},
+      
+
       data() {
         return {
           tableData: [{
