@@ -11,6 +11,8 @@
 </template>
 
 <style>
+@import url('../static/assets/css/normalize.css');
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

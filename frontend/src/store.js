@@ -111,6 +111,7 @@ export default new Vuex.Store({
         currentProduct: {},
         showModal: false,
         showPopupCart: false,
+        cartProductsSum: [],
     },
 
     getters: {
@@ -126,6 +127,15 @@ export default new Vuex.Store({
     mutations: {
         ADD_PRODUCT: (state, product) => {
             state.cartProducts.push(product);
+            const theProduct = { name: product.name, amount: 1, price: product.price };
+            console.log(theProduct)
+            console.log(state.cartProductsSum.includes(theProduct))
+            if (state.cartProductsSum.includes(theProduct)) {
+
+                state.cartProductsSum[state.cartProductsSum.indexOf(theProduct)].amount++;
+            } else {
+                state.cartProductsSum.push(theProduct);
+            }
         },
         REMOVE_PRODUCT: (state, index) => {
             state.cartProducts.splice(index, 1);

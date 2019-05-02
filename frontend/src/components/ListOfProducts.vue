@@ -6,7 +6,7 @@
         <h2 class="product-name" @click="addCurrentProduct(product)">{{ product.name }}</h2>
       </router-link>
       <div class="product-price">
-        <span>R$ {{ product.price }}, 00</span>
+        <span>$ {{ product.price }}, 00</span>
         <span>10 x {{ Math.round(product.price / 10) }}, 00</span>
       </div>
       <el-button

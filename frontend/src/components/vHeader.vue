@@ -26,14 +26,16 @@
       </el-badge>
     </el-menu>
 
-    <!--購物車 dialog-->
+    <!--購物車 popup dialog-->
     <el-dialog title="購物車" :visible.sync="showPopupCart">
       <el-table :data="getProductsInCart" empty-text='購物車為空喔!'>
         <el-table-column property="name" label="名稱" width="150"></el-table-column>
-        <el-table-column property="details" label="內容" width="200"></el-table-column>
+        <el-table-column property="details" label="數量" width="200"></el-table-column>
         <el-table-column property="price" label="價格"></el-table-column>
       </el-table>
+      <el-button v-if="getProductsInCart.length>0" type="primary" size=small style="margin-top: 8px">看購物車</el-button>
     </el-dialog>
+
   </div>
 </template>
 <!-- .js 檔案在此相依 -->
