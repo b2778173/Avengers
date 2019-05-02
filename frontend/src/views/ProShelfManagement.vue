@@ -4,7 +4,7 @@
     <v-header/>
   <el-table
       :data="tableData"
-      style="width: 70%" height='500' :default-sort = "{prop: 'date', order: 'descending'}"
+      style="width: 90%" height='500' :default-sort = "{prop: 'date', order: 'descending'}"
    stripe>
 
       <el-table-column sortable 
@@ -28,7 +28,17 @@
       </el-table-column>
        <el-table-column
         prop="pro_status"
-        label="商品狀態">
+        label="商品狀態"
+        width="100"
+        :filters="[{ text: '開啟', value: '開啟' }, { text: '關閉', value: '關閉' }]"
+        :filter-method="filterTag"
+        filter-placement="bottom-end"
+        >
+        <template slot-scope="scope">
+        <el-tag
+          :type="scope.row.pro_status === '開啟' ? 'success' : 'danger'"
+          disable-transitions>{{scope.row.pro_status}}</el-tag>
+      </template>
       </el-table-column>
       <el-table-column 
        label="操作"
@@ -36,11 +46,11 @@
       <template slot-scope="scope">
         <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+          @click="handleEdit(scope.$index, scope.row)">編輯</el-button>
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+          @click="handleDelete(scope.$index, scope.row)">刪除</el-button>
       </template>
     </el-table-column>
 
@@ -64,49 +74,49 @@ export default {
             pro_name: '',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'開啟'
           }, {
             create_dt:Mock.mock('@date("yyyy-MM-dd")'),
-            pro_name: '',
+            pro_name: '開啟',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'開啟'
+          }, {
+            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
+            pro_name: '關閉',
+            pro_type: '王小虎',
+            pro_amount:Mock.mock('@integer(1, 1000)'),
+            pro_status:'開啟'
           }, {
             create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
-          }, {
-            create_dt: Mock.mock('@date("yyyy-MM-dd")'),
-            pro_name: '',
-            pro_type: '王小虎',
-            pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'開啟'
           },{
             create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'關閉'
           },{
             create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'開啟'
           },{
             create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'開啟'
           },{
             create_dt: Mock.mock('@date("yyyy-MM-dd")'),
             pro_name: '',
             pro_type: '王小虎',
             pro_amount:Mock.mock('@integer(1, 1000)'),
-            pro_status:''
+            pro_status:'關閉'
           }]
         }
         },methods: {

@@ -44,6 +44,13 @@ export default new Router({
             name: 'proShelfManagement',
             component: () =>
                 import ( /* webpackChunkName: "proShelfManagement" */ './views/ProShelfManagement.vue')
+        },
+        {
+            path: '/proTypeManagement',
+            name: '/proTypeManagement',
+            component: () =>
+                import ( /* webpackChunkName: "proTypeManagement" */ './views/ProTypeManagement.vue')
+
         }
     ]
 })
