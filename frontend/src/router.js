@@ -40,6 +40,12 @@ export default new Router({
                 import ('./views/AllProducts.vue')
         },
         {
+            path: '/Cart',
+            name: 'Cart',
+            component: () =>
+                import ('./views/Cart.vue')
+        },
+        {
             path: '/proShelfManagement',
             name: 'proShelfManagement',
             component: () =>

@@ -111,6 +111,7 @@ export default new Vuex.Store({
         currentProduct: {},
         showModal: false,
         showPopupCart: false,
+        // 購物車商品summary
         cartProductsSum: [],
     },
 
@@ -122,6 +123,7 @@ export default new Vuex.Store({
         getCurrentProduct: state => state.currentProduct,
         getShowModal: state => state.showModal,
         getPopupCart: state => state.showPopupCart,
+        getProductsInCartSum: state => state.cartProductsSum,
     },
 
     mutations: {
@@ -129,10 +131,11 @@ export default new Vuex.Store({
             state.cartProducts.push(product);
             const theProduct = { name: product.name, amount: 1, price: product.price };
             console.log(theProduct)
-            console.log(state.cartProductsSum.includes(theProduct))
-            if (state.cartProductsSum.includes(theProduct)) {
+            console.log(state.cartProductsSum.find(theProduct => theProduct.name == product.name))
+            if (state.cartProductsSum.find(theProduct => theProduct.name == product.name)) {
+                console.log('nice')
 
-                state.cartProductsSum[state.cartProductsSum.indexOf(theProduct)].amount++;
+                state.cartProductsSum.find(theProduct => theProduct.name == product.name).amount++;
             } else {
                 state.cartProductsSum.push(theProduct);
             }

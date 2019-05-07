@@ -28,14 +28,32 @@
 
     <!--購物車 popup dialog-->
     <el-dialog title="購物車" :visible.sync="showPopupCart">
-      <el-table :data="getProductsInCart" empty-text='購物車為空喔!'>
+      <el-table :data="getProductsInCartSum" empty-text="購物車為空喔!">
         <el-table-column property="name" label="名稱" width="150"></el-table-column>
-        <el-table-column property="details" label="數量" width="200"></el-table-column>
+        <el-table-column align="center" property="amount" label="數量" width="200"></el-table-column>
         <el-table-column property="price" label="價格"></el-table-column>
       </el-table>
-      <el-button v-if="getProductsInCart.length>0" type="primary" size=small style="margin-top: 8px">看購物車</el-button>
+      <!-- <table>
+        <tr>
+          <th>名稱</th>
+          <th>數量</th>
+          <th>價格</th>
+        </tr>
+        <tr v-for="p in getProductsInCartSum" :key="p.name">
+          <td>{{p.name}}</td>
+          <td><el-input-number size="mini" v-model="p.amount"></el-input-number></td>
+          <td>{{p.price}}</td>
+        </tr>
+      </table>-->
+      <router-link to="/Cart">
+        <el-button
+          v-if="getProductsInCart.length>0"
+          type="primary"
+          size="small"
+          style="margin-top: 8px"
+        >看購物車</el-button>
+      </router-link>
     </el-dialog>
-
   </div>
 </template>
 <!-- .js 檔案在此相依 -->
@@ -48,11 +66,17 @@ export default {
       activeIndex: "1",
       activeIndex2: "1",
       showPopupCart: false,
+      amount: 5
     };
   },
+  mounted() {},
   computed: {
-    ...mapGetters(["getProductsInCart", "getPopupCart"]),
-    ...mapActions(["showOrHiddenPopupCart"]),
+    ...mapGetters([
+      "getProductsInCart",
+      "getPopupCart",
+      "getProductsInCartSum"
+    ]),
+    ...mapActions(["showOrHiddenPopupCart"])
   },
   methods: {
     handleSelect(key, keyPath) {
