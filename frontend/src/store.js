@@ -129,7 +129,7 @@ export default new Vuex.Store({
     mutations: {
         ADD_PRODUCT: (state, product) => {
             state.cartProducts.push(product);
-            const theProduct = { name: product.name, amount: 1, price: product.price };
+            const theProduct = { name: product.name, amount: 1, price: product.price, img: product.image };
             console.log(theProduct)
             console.log(state.cartProductsSum.find(theProduct => theProduct.name == product.name))
             if (state.cartProductsSum.find(theProduct => theProduct.name == product.name)) {
@@ -141,7 +141,14 @@ export default new Vuex.Store({
             }
         },
         REMOVE_PRODUCT: (state, index) => {
+            console.log('index=', index)
             state.cartProducts.splice(index, 1);
+            if (state.cartProductsSum[index].amount > 1) {
+                state.cartProductsSum[index].amount--;
+            } else {
+                state.cartProductsSum.splice(index, 1);
+            }
+
         },
         CURRENT_PRODUCT: (state, product) => {
             state.currentProduct = product;
