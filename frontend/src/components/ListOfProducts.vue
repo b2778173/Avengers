@@ -12,7 +12,7 @@
       <el-button
         type="primary"
         icon="el-icon-plus"
-        style=" width:100%"
+        class='product-btn'
         @click.native="addProductToCart(product)"
       >Add to cart</el-button>
     </el-card>

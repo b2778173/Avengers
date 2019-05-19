@@ -4,9 +4,9 @@
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
-      background-color="#333333"
-      text-color="#fff"
-      active-text-color="#ffd04b"
+      text-color="black"
+      active-text-color="#b3b3b3"
+      style="position: fixed;top: 0; left:0; right: 0;"
       @select="handleSelect"
     >
       <el-menu-item index="1">全部</el-menu-item>
@@ -18,7 +18,7 @@
         class="item cart-icon"
       >
         <el-button
-          type="primary"
+          type="info"
           icon="el-icon-shopping-cart-2"
           circle
           @click="showPopupCart=!showPopupCart"
